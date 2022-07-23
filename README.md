@@ -1,11 +1,14 @@
 # wuelev8-fosfor-HACKATHON
-participant
 
-install boto3 first
+satisfy your requirements by doing
 
-pip install boto3
+pip install -r requirements.txt
 
-configure an existed account or create a new one with the custom IAM policy template which is alredy uploaded.
+brief of what the app is currently doing
 
-install pandas to convert the response into xls or csv
+First its utilising the API of cloudwatch to pull the bill and costs incurred in the month.
+
+after getting the output the script tearing it down to get the useful data which is the actual cost incurred during the period.
+
+after this pandas library comes into play to convert the respose to a csv file.
 
