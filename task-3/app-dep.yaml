@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    run: app
+  name: app-blue
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      run: app
+      version: 0.0.1
+  template:
+    metadata:
+      labels:
+        run: app
+        version: 0.0.1 #change on the green deployment
+    spec:
+      containers:
+      - name: app
+        image: go-1 #change this too
+        ports:
+        - containerPort: 3000

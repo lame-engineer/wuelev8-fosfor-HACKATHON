@@ -1,0 +1,10 @@
+FROM golang:1.16-alpine
+
+WORKDIR /usr/src/app
+COPY go-1.go .
+#or go-2 as its a example file
+
+
+RUN go build -o /docker-gs-ping
+
+CMD [ "/docker-gs-ping" ]

@@ -1,0 +1,28 @@
+apiVersion: apps/v1 #change these to match
+kind: Deployment
+metadata:
+  labels:
+    run: app
+  name: app
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      run: app
+  template:
+    metadata:
+      labels:
+        run: app
+    spec:
+      containers:
+      - name: app
+        image: go-1 #or -2 its on the case for blue green
+        ports:
+        - containerPort: 3000
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 3000
+          initialDelaySeconds: 5
+          periodSeconds: 5
+          successThreshold: 1
